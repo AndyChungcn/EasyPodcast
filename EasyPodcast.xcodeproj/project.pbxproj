@@ -16,6 +16,8 @@
 		5C6638212213A4FE0002020F /* PodcastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6638202213A4FE0002020F /* PodcastSearchController.swift */; };
 		5C6638242213A57B0002020F /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6638232213A57B0002020F /* Podcast.swift */; };
 		5CB5241E222CB4710097BB0A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB5241D222CB4710097BB0A /* APIService.swift */; };
+		5CB52421222CC11A0097BB0A /* PodcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB52420222CC11A0097BB0A /* PodcastCell.xib */; };
+		5CB52423222CC1730097BB0A /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB52422222CC1730097BB0A /* PodcastCell.swift */; };
 		8C4D29CBCC8C6255AF0544EC /* Pods_EasyPodcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61986AABB856FB6C3124D722 /* Pods_EasyPodcast.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		5C6638202213A4FE0002020F /* PodcastSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastSearchController.swift; sourceTree = "<group>"; };
 		5C6638232213A57B0002020F /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		5CB5241D222CB4710097BB0A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		5CB52420222CC11A0097BB0A /* PodcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastCell.xib; sourceTree = "<group>"; };
+		5CB52422222CC1730097BB0A /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		61986AABB856FB6C3124D722 /* Pods_EasyPodcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPodcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4ACEE460B347C730CB5E73 /* Pods-EasyPodcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPodcast.debug.xcconfig"; path = "Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast.debug.xcconfig"; sourceTree = "<group>"; };
 		FE8B64A5C6A3656C3DAB910C /* Pods-EasyPodcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPodcast.release.xcconfig"; path = "Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		5C60D59D22126AD100E09305 /* EasyPodcast */ = {
 			isa = PBXGroup;
 			children = (
+				5CB5241F222CC10B0097BB0A /* Views */,
 				5CB5241C222CB4420097BB0A /* API */,
 				5C3F58A7222BFF78003123CE /* Controllers */,
 				5C6638222213A5710002020F /* Models */,
@@ -114,6 +119,15 @@
 				5CB5241D222CB4710097BB0A /* APIService.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		5CB5241F222CC10B0097BB0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CB52420222CC11A0097BB0A /* PodcastCell.xib */,
+				5CB52422222CC1730097BB0A /* PodcastCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8BC0EBCC8D1486D859AA8B62 /* Frameworks */ = {
@@ -186,6 +200,7 @@
 			files = (
 				5C60D5A922126AD200E09305 /* LaunchScreen.storyboard in Resources */,
 				5C60D5A622126AD200E09305 /* Assets.xcassets in Resources */,
+				5CB52421222CC11A0097BB0A /* PodcastCell.xib in Resources */,
 				5C60D5A422126AD100E09305 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,12 +240,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,6 +267,7 @@
 				5C60D5B122126B2B00E09305 /* MainTabBarController.swift in Sources */,
 				5CB5241E222CB4710097BB0A /* APIService.swift in Sources */,
 				5C6638242213A57B0002020F /* Podcast.swift in Sources */,
+				5CB52423222CC1730097BB0A /* PodcastCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
