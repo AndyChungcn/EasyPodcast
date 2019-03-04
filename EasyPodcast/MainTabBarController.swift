@@ -18,6 +18,8 @@ class MainTabBarController: UITabBarController {
         setupViewControllers()
     }
     
+    // MARK:- Setup Function
+    
     func setupViewControllers() {
         viewControllers = [
             generateNavController(for: PodcastSearchController(), title: "Search", image: #imageLiteral(resourceName: "search")),

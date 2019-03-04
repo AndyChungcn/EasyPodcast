@@ -15,6 +15,8 @@
 		5C60D5B122126B2B00E09305 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C60D5B022126B2B00E09305 /* MainTabBarController.swift */; };
 		5C6638212213A4FE0002020F /* PodcastSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6638202213A4FE0002020F /* PodcastSearchController.swift */; };
 		5C6638242213A57B0002020F /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6638232213A57B0002020F /* Podcast.swift */; };
+		5CB5241E222CB4710097BB0A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB5241D222CB4710097BB0A /* APIService.swift */; };
+		8C4D29CBCC8C6255AF0544EC /* Pods_EasyPodcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61986AABB856FB6C3124D722 /* Pods_EasyPodcast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		5C60D5B022126B2B00E09305 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5C6638202213A4FE0002020F /* PodcastSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastSearchController.swift; sourceTree = "<group>"; };
 		5C6638232213A57B0002020F /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		5CB5241D222CB4710097BB0A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		61986AABB856FB6C3124D722 /* Pods_EasyPodcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPodcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4ACEE460B347C730CB5E73 /* Pods-EasyPodcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPodcast.debug.xcconfig"; path = "Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast.debug.xcconfig"; sourceTree = "<group>"; };
+		FE8B64A5C6A3656C3DAB910C /* Pods-EasyPodcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPodcast.release.xcconfig"; path = "Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C4D29CBCC8C6255AF0544EC /* Pods_EasyPodcast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17717FB5A8E15EA1661CB20C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA4ACEE460B347C730CB5E73 /* Pods-EasyPodcast.debug.xcconfig */,
+				FE8B64A5C6A3656C3DAB910C /* Pods-EasyPodcast.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5C3F58A7222BFF78003123CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C6638202213A4FE0002020F /* PodcastSearchController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		5C60D59222126AD100E09305 = {
 			isa = PBXGroup;
 			children = (
 				5C60D59D22126AD100E09305 /* EasyPodcast */,
 				5C60D59C22126AD100E09305 /* Products */,
+				17717FB5A8E15EA1661CB20C /* Pods */,
+				8BC0EBCC8D1486D859AA8B62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +86,9 @@
 		5C60D59D22126AD100E09305 /* EasyPodcast */ = {
 			isa = PBXGroup;
 			children = (
-				5C6638222213A5710002020F /* Model */,
+				5CB5241C222CB4420097BB0A /* API */,
+				5C3F58A7222BFF78003123CE /* Controllers */,
+				5C6638222213A5710002020F /* Models */,
 				5C60D59E22126AD100E09305 /* AppDelegate.swift */,
 				5C60D5A022126AD100E09305 /* ViewController.swift */,
 				5C60D5A222126AD100E09305 /* Main.storyboard */,
@@ -68,17 +96,32 @@
 				5C60D5A722126AD200E09305 /* LaunchScreen.storyboard */,
 				5C60D5AA22126AD200E09305 /* Info.plist */,
 				5C60D5B022126B2B00E09305 /* MainTabBarController.swift */,
-				5C6638202213A4FE0002020F /* PodcastSearchController.swift */,
 			);
 			path = EasyPodcast;
 			sourceTree = "<group>";
 		};
-		5C6638222213A5710002020F /* Model */ = {
+		5C6638222213A5710002020F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				5C6638232213A57B0002020F /* Podcast.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5CB5241C222CB4420097BB0A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5CB5241D222CB4710097BB0A /* APIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8BC0EBCC8D1486D859AA8B62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61986AABB856FB6C3124D722 /* Pods_EasyPodcast.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C60D5AD22126AD200E09305 /* Build configuration list for PBXNativeTarget "EasyPodcast" */;
 			buildPhases = (
+				0035C0506E7FBAD9138693AD /* [CP] Check Pods Manifest.lock */,
 				5C60D59722126AD100E09305 /* Sources */,
 				5C60D59822126AD100E09305 /* Frameworks */,
 				5C60D59922126AD100E09305 /* Resources */,
+				00A292BFF5D90A2CBFD78861 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,6 +192,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0035C0506E7FBAD9138693AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyPodcast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		00A292BFF5D90A2CBFD78861 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPodcast/Pods-EasyPodcast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C60D59722126AD100E09305 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -156,6 +248,7 @@
 				5C60D5A122126AD100E09305 /* ViewController.swift in Sources */,
 				5C60D59F22126AD100E09305 /* AppDelegate.swift in Sources */,
 				5C60D5B122126B2B00E09305 /* MainTabBarController.swift in Sources */,
+				5CB5241E222CB4710097BB0A /* APIService.swift in Sources */,
 				5C6638242213A57B0002020F /* Podcast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +393,7 @@
 		};
 		5C60D5AE22126AD200E09305 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4ACEE460B347C730CB5E73 /* Pods-EasyPodcast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +412,7 @@
 		};
 		5C60D5AF22126AD200E09305 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE8B64A5C6A3656C3DAB910C /* Pods-EasyPodcast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

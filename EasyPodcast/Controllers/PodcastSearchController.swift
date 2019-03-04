@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class PodcastSearchController: UITableViewController, UISearchBarDelegate {
     
-    let podcasts = [
-        Podcast(name: "Let's build that app", artistName: "AndyChung"),
-        Podcast(name: "Flip Radio", artistName: "John")
+    var podcasts = [
+        Podcast(trackName: "Let's build that app", artistName: "AndyChung"),
+        Podcast(trackName: "Flip Radio", artistName: "John")
     ]
     let cellId = "cellId"
     
@@ -41,9 +42,16 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        
+        APIService.shared.fetchPodcasts(searchText: searchText) { (podcasts) in
+            self.podcasts = podcasts
+            self.tableView.reloadData()
+        }
+        
         // implement Alamofire to search iTunes API
     }
+    
+    
     
     // MARK:- UITableView
     
@@ -55,7 +63,7 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         let podcast = podcasts[indexPath.row]
-        cell.textLabel?.text = "\(podcast.name)\n\(podcast.artistName)"
+        cell.textLabel?.text = "\(podcast.trackName ?? "")\n\(podcast.artistName ?? "")"
         cell.textLabel?.numberOfLines = 0
         cell.imageView?.image = #imageLiteral(resourceName: "appicon")
         
