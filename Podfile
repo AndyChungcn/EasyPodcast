@@ -6,6 +6,7 @@ target 'EasyPodcast' do
   use_frameworks!
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'FeedKit'
 
   # Pods for EasyPodcast
 
