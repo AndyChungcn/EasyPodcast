@@ -23,7 +23,7 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
         
         setupSearchBar()
         setupTableView()
-        
+        searchBar(searchController.searchBar, textDidChange: "bbc")
     }
     
     // MARK:- Setup work
@@ -42,15 +42,23 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
         tableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
+    var timer: Timer?
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        APIService.shared.fetchPodcasts(searchText: searchText) { (podcasts) in
-            self.podcasts = podcasts
-            self.tableView.reloadData()
-        }
+        
+        podcasts = []
+        tableView.reloadData()
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (timer) in
+            APIService.shared.fetchPodcasts(searchText: searchText) { (podcasts) in
+                self.podcasts = podcasts
+                self.tableView.reloadData()
+            }
+        })
+        
     }
-    
-    
-    
+            
     // MARK:- UITableView
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -69,7 +77,17 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return podcasts.count > 0 ? 0 : 250
+        return self.podcasts.isEmpty && searchController.searchBar.text?.isEmpty == true ? 250 : 0
+    }
+    
+    var podcastSearchView = Bundle.main.loadNibNamed("PodcastsSearchingView", owner: self, options: nil)?.first as? UIView
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return podcastSearchView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return podcasts.isEmpty && searchController.searchBar.text?.isEmpty == false ? 200 : 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
