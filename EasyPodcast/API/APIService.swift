@@ -19,7 +19,7 @@ class APIService {
     
     func fetchEpisodes(feedUrl: String, completionHandler: @escaping ([Episode]) -> ()) {
         let secureFeedUrl = feedUrl.toSecureHTTPS()
-        
+        print("secure feed url: ", secureFeedUrl)
         guard let url = URL(string: secureFeedUrl) else { return }
         
         DispatchQueue.global(qos: .background).async {
