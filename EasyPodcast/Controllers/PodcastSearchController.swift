@@ -7,26 +7,27 @@
 //
 
 import UIKit
+import Alamofire
 
-
-class PodcastSearchController: UITableViewController, UISearchBarDelegate {
+class PodcastsSearchController: UITableViewController, UISearchBarDelegate {
     
     var podcasts = [Podcast]()
+    
     let cellId = "cellId"
     
-    // Implement a UISearchController
+    // lets implement a UISearchController
     let searchController = UISearchController(searchResultsController: nil)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSearchBar()
         setupTableView()
+        
         searchBar(searchController.searchBar, textDidChange: "bbc")
     }
     
-    // MARK:- Setup work
+    //MARK:- Setup Work
     
     fileprivate func setupSearchBar() {
         self.definesPresentationContext = true
@@ -34,12 +35,6 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
-    }
-    
-    fileprivate func setupTableView() {
-        tableView.tableFooterView = UIView()        
-        let nib = UINib(nibName: "PodcastCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellId)
     }
     
     var timer: Timer?
@@ -56,10 +51,15 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         })
-        
     }
-            
-    // MARK:- UITableView
+    
+    fileprivate func setupTableView() {
+        tableView.tableFooterView = UIView()
+        let nib = UINib(nibName: "PodcastCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellId)
+    }
+    
+    //MARK:- UITableView
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episodesController = EpisodesController()
@@ -70,18 +70,18 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Please enter a Search Term"
+        label.text = "请在搜索框中输入你想听的博客"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return label
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // ternary operator
         return self.podcasts.isEmpty && searchController.searchBar.text?.isEmpty == true ? 250 : 0
     }
     
     var podcastSearchView = Bundle.main.loadNibNamed("PodcastsSearchingView", owner: self, options: nil)?.first as? UIView
-    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return podcastSearchView
     }
@@ -97,9 +97,8 @@ class PodcastSearchController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PodcastCell
         
-        let podcast = podcasts[indexPath.row]
+        let podcast = self.podcasts[indexPath.row]
         cell.podcast = podcast
-        
         return cell
     }
     

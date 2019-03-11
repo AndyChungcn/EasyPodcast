@@ -26,6 +26,14 @@
                             <constraint firstAttribute="width" constant="100" id="oLk-zE-iyn"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-kF-0VF">
+                        <rect key="frame" x="28" y="98" width="76.5" height="34.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <size key="shadowOffset" width="0.0" height="1"/>
+                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fif-nx-zC7">
                         <rect key="frame" x="132" y="82.5" width="359" height="66"/>
                         <subviews>
@@ -51,9 +59,11 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ehX-kF-0VF" firstAttribute="centerX" secondItem="cAd-Q5-pM3" secondAttribute="centerX" id="6Cw-Tn-2oc"/>
                     <constraint firstItem="cAd-Q5-pM3" firstAttribute="leading" secondItem="AdO-ct-A69" secondAttribute="leading" constant="16" id="Dyk-9c-DZr"/>
                     <constraint firstItem="fif-nx-zC7" firstAttribute="centerY" secondItem="AdO-ct-A69" secondAttribute="centerY" id="UcT-XC-Ysu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fif-nx-zC7" secondAttribute="trailing" id="ea1-qD-rYe"/>
+                    <constraint firstItem="ehX-kF-0VF" firstAttribute="centerY" secondItem="cAd-Q5-pM3" secondAttribute="centerY" id="iCe-ZG-Llh"/>
                     <constraint firstItem="cAd-Q5-pM3" firstAttribute="centerY" secondItem="AdO-ct-A69" secondAttribute="centerY" id="ke6-dq-4rv"/>
                     <constraint firstItem="fif-nx-zC7" firstAttribute="leading" secondItem="cAd-Q5-pM3" secondAttribute="trailing" constant="16" id="rgc-aQ-IGk"/>
                 </constraints>
@@ -62,6 +72,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="t14-ok-5Rm" id="xTD-Qc-vyR"/>
                 <outlet property="episodeImageView" destination="cAd-Q5-pM3" id="qoI-ZF-Hvw"/>
+                <outlet property="progressLabel" destination="ehX-kF-0VF" id="cFw-XB-EEs"/>
                 <outlet property="pubDateLabel" destination="hUM-Jf-HtU" id="WnL-pR-yq7"/>
                 <outlet property="titleLabel" destination="qZm-Jx-qaz" id="LYv-WX-f3x"/>
             </connections>

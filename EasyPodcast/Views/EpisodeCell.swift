@@ -19,11 +19,11 @@ class EpisodeCell: UITableViewCell {
             pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
             
             let url = URL(string: episode.imageUrl?.toSecureHTTPS() ?? "")
-            episodeImageView.sd_setImage(with: url, completed: nil)
-            
+            episodeImageView.sd_setImage(with: url)
         }
     }
-
+    
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var pubDateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel! {
@@ -31,6 +31,7 @@ class EpisodeCell: UITableViewCell {
             titleLabel.numberOfLines = 2
         }
     }
+    
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
             descriptionLabel.numberOfLines = 2
@@ -38,4 +39,10 @@ class EpisodeCell: UITableViewCell {
     }
     
     
+    
+    
+    
+    
+    
 }
+
